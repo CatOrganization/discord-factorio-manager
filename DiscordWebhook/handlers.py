@@ -1,4 +1,3 @@
-from DiscordWebhook.responses import Ok, Unauthorized
 import functools
 import logging
 from typing import Callable, Iterable, Mapping, Optional
@@ -8,6 +7,8 @@ from discord_interactions import (InteractionResponseType, InteractionType,
                                   verify_key)
 
 from DiscordWebhook.models import CommandOptionType
+from DiscordWebhook.responses import Ok, Unauthorized
+
 
 def partial_http_request_handler(handler: Callable[[func.HttpRequest], Optional[func.HttpResponse]]) -> Callable[[func.HttpRequest], func.HttpResponse]:
     """
