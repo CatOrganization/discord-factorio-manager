@@ -41,3 +41,8 @@ The factorio companion process tracks the following information:
 
 ### Bot
 The bot surfaces the state of the factorio process to a discord channel.
+
+#### Slash commands
+- `/factorio status`: Get the status of the server.
+- `/factorio start`: Start the server.
+- `/factorio stop`: Stop the server.
