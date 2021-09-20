@@ -1,30 +1,13 @@
+from DiscordWebhook.responses import Ok, Unauthorized
 import functools
-import json
 import logging
-from typing import Callable, Iterable, Mapping, Optional, Union
+from typing import Callable, Iterable, Mapping, Optional
 
 import azure.functions as func
 from discord_interactions import (InteractionResponseType, InteractionType,
                                   verify_key)
 
 from DiscordWebhook.models import CommandOptionType
-
-
-def Ok(body: Union[str, Mapping]) -> func.HttpResponse:
-    if isinstance(body, Mapping):
-        # convert to json
-        body = json.dumps(body)
-
-    return func.HttpResponse(body=body, status_code=200, mimetype='application/json')
-
-    
-def BadRequest(body: str) -> func.HttpResponse:
-    return func.HttpResponse(body=body, status_code=400)
-
-
-def Unauthorized(body: str) -> func.HttpResponse:
-    return func.HttpResponse(body=body, status_code=401)
-    
 
 def partial_http_request_handler(handler: Callable[[func.HttpRequest], Optional[func.HttpResponse]]) -> Callable[[func.HttpRequest], func.HttpResponse]:
     """

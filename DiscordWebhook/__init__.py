@@ -2,10 +2,11 @@ import logging
 
 import azure.functions as func
 
-from DiscordWebhook.handlers import (BadRequest, application_command_handler,
+from DiscordWebhook.handlers import (application_command_handler,
                                      partial_http_request_handler,
                                      ping_handler,
                                      verify_request_signature_handler)
+from DiscordWebhook.responses import BadRequest
 
 CLIENT_PUBLIC_KEY = '2ec6232217f7b9c05cf478d51678a5521e6696276308a23c26df928a23c3c505'
 
