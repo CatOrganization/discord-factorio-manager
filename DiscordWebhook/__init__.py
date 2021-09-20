@@ -1,7 +1,8 @@
 import json
 import logging
-import random
 from typing import Iterable, Mapping, Optional, Union
+
+from models import CommandOptionType
 
 import azure.functions as func
 
@@ -63,7 +64,7 @@ def handle_application_command(json: Mapping) -> func.HttpResponse:
             option = options[0]
             option_type = option.get('type')
             logging.debug('Option type: %d', option_type)
-            if option_type == 1:
+            if option_type == CommandOptionType.SUB_COMMAND:
                 # option is a subcommand
                 subcommand_name = option.get('name')
                 logging.debug('Subcommand name: %s', subcommand_name)
