@@ -1,3 +1,4 @@
 azure-functions
 discord-interactions
+factorio-rcon-py
 requests
